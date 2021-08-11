@@ -38,4 +38,9 @@ export class AuthController {
   ): Promise<boolean> {
     return await this.authService.ifMy(payload.token, payload.user);
   }
+
+  @MessagePattern('auth-by-token')
+  async userFromToken(@Payload() payload: string): Promise<Auth> {
+    return await this.authService.getByToken(payload);
+  }
 }

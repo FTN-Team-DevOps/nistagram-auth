@@ -120,4 +120,12 @@ export class AuthService {
     }
     return auth.user.toString() === user;
   }
+
+  public async getByToken(token: string): Promise<Auth> {
+    const auth = await this.authModel.findOne({ token });
+    if (!auth) {
+      throw new NotFoundException();
+    }
+    return auth;
+  }
 }
