@@ -28,6 +28,7 @@
     "@nestjs/mongoose": "^8.0.0",
     "@nestjs/passport": "^8.0.0",
     "@nestjs/platform-express": "^7.6.15",
+    "@willsoto/nestjs-prometheus": "^4.0.0",
     "amqp-connection-manager": "^3.2.2",
     "amqplib": "^0.8.0",
     "bcrypt": "^5.0.1",
@@ -35,6 +36,7 @@
     "mongoose": "^5.13.5",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "prom-client": "^13.2.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.6"

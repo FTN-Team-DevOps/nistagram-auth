@@ -1,7 +1,6 @@
 import {
   BadRequestException,
   Injectable,
-  Logger,
   NotFoundException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
@@ -86,11 +85,14 @@ export class AuthService {
 
   public async login(userCredentials: UserLoginDTO): Promise<Auth> {
     const auth = await this.authModel.findOne({ email: userCredentials.email });
-    if (
-      !auth ||
-      (auth &&
-        !(await this.comparePassword(userCredentials.password, auth.password)))
-    ) {
+    if (!auth) {
+      throw new BadRequestException('Bad credentials!');
+    }
+    const passwordMatched = await this.comparePassword(
+      userCredentials.password,
+      auth.password,
+    );
+    if (!passwordMatched) {
       throw new BadRequestException('Bad credentials!');
     }
 
