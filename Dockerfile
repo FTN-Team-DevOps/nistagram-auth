@@ -34,8 +34,9 @@ RUN command -v nvm; \
     node --version; \
     command -v npm; \
     npm --version;
-
 RUN npm ci --only=development
 
 COPY . .
+RUN npm uninstall bcrypt
+RUN npm install bcrypt
 RUN npm run build
