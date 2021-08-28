@@ -34,7 +34,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: fmladenovic/devops
-        tags: auth-v1, auth-latest
+        tags: auth-v2, auth-latest
         registry: docker.io
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
